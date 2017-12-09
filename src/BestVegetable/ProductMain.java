@@ -1,5 +1,6 @@
 package BestVegetable;
 
+import Service.GuestUtil;
 import Service.ProductUtils;
 
 import javax.servlet.*;
@@ -11,8 +12,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-@WebServlet(name = "BestVegetable",urlPatterns = "/product")
-public class main extends HttpServlet{
+@WebServlet(name = "product",urlPatterns = "/product")
+public class ProductMain extends HttpServlet{
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,5 +22,6 @@ public class main extends HttpServlet{
         PrintWriter pw = resp.getWriter();
 
         ProductUtils.getAllinfo(pw);
+
     }
 }

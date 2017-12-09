@@ -10,9 +10,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class ConnectionManager {
+public class SQLConnectionManager {
 
-    private static ConnectionManager instance;
+    private static SQLConnectionManager instance;
     private static ComboPooledDataSource ds;
 
     /**
@@ -35,9 +35,9 @@ public class ConnectionManager {
      * 获取数据库实例；
      * 单例模式;
      * */
-    public synchronized static final ConnectionManager getInstance(){
+    public synchronized static final SQLConnectionManager getInstance(){
         if(instance == null){
-            instance = new ConnectionManager();
+            instance = new SQLConnectionManager();
         }
         return instance;
     }

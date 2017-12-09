@@ -2,6 +2,7 @@ package Dao
 
 import Idao.IProduct
 import Model.Product
+import Utils.SQLConnectionManager
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 
@@ -12,7 +13,7 @@ class ProductDAO : IProduct{
             return result
         }
 
-        val con = Utils.ConnectionManager.getInstance().connection
+        val con = SQLConnectionManager.getInstance().connection
         var statement : PreparedStatement? = null
 
         return false
@@ -35,7 +36,7 @@ class ProductDAO : IProduct{
         val list = ArrayList<Product>()
         var info : Product
 
-        val conn = Utils.ConnectionManager.getInstance().connection
+        val conn = SQLConnectionManager.getInstance().connection
         var statement : PreparedStatement? = null
         var rs : ResultSet? = null
 
@@ -57,7 +58,7 @@ class ProductDAO : IProduct{
         }catch (e : Exception){
             e.printStackTrace()
         }finally {
-            Utils.ConnectionManager.close(rs,statement,conn)
+            SQLConnectionManager.close(rs,statement,conn)
             return list
         }
 
