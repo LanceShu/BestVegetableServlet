@@ -2,6 +2,7 @@ package BestVegetable;
 
 import Service.GuestUtil;
 import Service.ProductUtils;
+import sun.rmi.runtime.Log;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,10 +19,20 @@ public class GuestMain extends HttpServlet{
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
+
         PrintWriter pw = response.getWriter();
 
+        /**
+         * 获取用户的账号与密码;
+         * */
+        String name = request.getParameter("name");
+        String pwd = request.getParameter("pwd");
 
-        GuestUtil.findUserByName("root","123456",pw);
+        /**
+         * 验证用户的账号密码是否正确;
+         * */
+        GuestUtil.findUserByName(name,pwd,pw);
 
     }
 }
