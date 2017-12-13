@@ -27,7 +27,7 @@ public class PriceUtil {
 
     public static void getInfoByUserId(String userID, PrintWriter pw){
         IPrice price = DAOFactory.createPriceDAO();
-        List<Price> prices = price.getPriceByUser("00000001");
+        List<Price> prices = price.getPriceByUser(userID);
 
         String json = "";
         try{

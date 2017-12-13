@@ -24,6 +24,8 @@ public class PriceMain extends HttpServlet{
 
         if(userID != null){
             PriceUtil.getInfoByUserId(userID,pw);
+        }else{
+            pw.println("no userID");
         }
 
     }
