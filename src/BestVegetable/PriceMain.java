@@ -20,7 +20,11 @@ public class PriceMain extends HttpServlet{
         response.setCharacterEncoding("UTF-8");
         PrintWriter pw = response.getWriter();
 
-        PriceUtil.getInfoByUserId("00000001",pw);
+        String userID = request.getParameter("userID");
+
+        if(userID != null){
+            PriceUtil.getInfoByUserId(userID,pw);
+        }
 
     }
 }

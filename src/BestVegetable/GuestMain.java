@@ -33,7 +33,9 @@ public class GuestMain extends HttpServlet{
         /**
          * 验证用户的账号密码是否正确;
          * */
-        GuestUtil.findUserByName(name,pwd,pw);
+        if(name != null && pwd != null){
+            GuestUtil.findUserByName(name,pwd,pw);
+        }
 
     }
 }
